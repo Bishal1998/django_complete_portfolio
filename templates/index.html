@@ -1,0 +1,483 @@
+{% extends 'base.html' %}
+{% block hero %}
+<div
+      id="home"
+      class="intro route bg-image"
+      style="background-image: url(static/img/intro-bg.jpg)"
+    >
+      <div class="overlay-itro"></div>
+      <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <!--<p class="display-6 color-d">Hello, world!</p>-->
+            {% for heros in hero %}
+            <h1 class="intro-title mb-4">I am {{heros.first_name}} {{heros.last_name}}</h1>
+            <p class="intro-subtitle">
+              <span class="text-slider-items"
+                >{{heros.car_4}},{{heros.car_3}},{{heros.car_2}},{{heros.car_1}}</span
+              ><strong class="text-slider"></strong>
+            </p>
+            {% endfor %}
+            <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock hero %}
+{% block about %}
+{% for abouts in about %}
+<section id="about" class="about-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-5">
+                      <div class="about-img">
+                        <img
+                          src="static/img/testimonial-2.jpg"
+                          class="img-fluid rounded b-shadow-a"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-7">
+                    
+                      <div class="about-info">
+                      
+                        <p>
+                          <span class="title-s">Name: </span>
+                          
+                          <span>Bishal Paudel</span>
+                          
+                        </p>
+                        
+                        <p>
+                          <span class="title-s">Profile: </span>
+                          <span>{{abouts.profile}}</span>
+                        </p>
+                        <p>
+                          <span class="title-s">Email: </span>
+                          <span>{{abouts.email}}</span>
+                        </p>
+                        <p>
+                          <span class="title-s">Phone: </span>
+                          <span>{{abouts.phone}}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="skill-mf">
+                    <p class="title-s">Skill</p>
+                    <span>HTML</span> <span class="pull-right">{{abouts.html}}%</span>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{abouts.html}}%"
+                        aria-valuenow="{{abouts.html}}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <span>CSS3</span> <span class="pull-right">{{abouts.css}}%</span>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{abouts.css}}%"
+                        aria-valuenow="{{abouts.css}}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <span>Python</span> <span class="pull-right">{{abouts.python}}%</span>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{abouts.python}}%"
+                        aria-valuenow="{{abouts.python}}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <span>Graphic Design</span> <span class="pull-right">{{abouts.graphic}}%</span>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{abouts.graphic}}%"
+                        aria-valuenow="{{abouts.graphic}}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="about-me pt-4 pt-md-0">
+                    <div class="title-box-2">
+                      <h5 class="title-left">About me</h5>
+                    </div>
+                    <p class="lead">
+                      {{abouts.txt_1}}
+                    </p>
+                    <p class="lead">
+                      {{abouts.txt_2}}
+                    </p>
+                    <p class="lead">
+                      {{abouts.txt_3}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+
+{% endblock about %}
+{% block services %}
+<section id="service" class="services-mf route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">Services</h3>
+              <p class="subtitle-a">
+                Services that we offer are:
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+            {% for service in services %} 
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="ion-{{service.icon}}"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">{{service.title}}</h2>
+                <p class="s-description text-center">
+                  {{service.detail}}
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+      {% endblock services %}
+    
+    {% block stats %}
+    <div
+      class="section-counter paralax-mf bg-image"
+      style="background-image: url(static/img/counters-bg.jpg)">
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+        {% for stat in stats %}
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box">
+              <div class="counter-ico">
+                <span class="ico-circle"
+                  ><i class="ion-checkmark-round"></i
+                ></span>
+              </div>
+              <div class="counter-num">
+                <p class="counter">{{stat.work}}</p>
+                <span class="counter-text">WORKS COMPLETED</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"
+                  ><i class="ion-ios-calendar-outline"></i
+                ></span>
+              </div>
+              <div class="counter-num">
+                <p class="counter">{{stat.exp}}</p>
+                <span class="counter-text">YEARS OF EXPERIENCE</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="ion-ios-people"></i></span>
+              </div>
+              <div class="counter-num">
+                <p class="counter">{{stat.client}}</p>
+                <span class="counter-text">TOTAL CLIENTS</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="ion-ribbon-a"></i></span>
+              </div>
+              <div class="counter-num">
+                <p class="counter">{{stat.award}}</p>
+                <span class="counter-text">AWARD WON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock stats %}
+    {% block portfolio %}
+<section id="work" class="portfolio-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">Portfolio</h3>
+              <p class="subtitle-a">
+                Some of my projects are:
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        {% for portfolio in portfolios %}
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="{{portfolio.image}}" data-lightbox="gallery-mf">
+                <div class="work-img">
+                  <img src="{{portfolio.image}}" alt="" class="img-fluid" />
+                </div>
+                <div class="work-content">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h2 class="w-title">{{portfolio.title}}</h2>
+                      <div class="w-more">
+                        <span class="w-ctegory">{{portfolio.category}}</span> /
+                        <span class="w-date">{{portfolio.date}}</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="w-like">
+                        <span class="ion-ios-plus-outline"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+    </section>
+    {% endblock portfolio %}
+    {% block testimony %}
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">Testimonials</h3>
+              <p class="subtitle-a">
+                What my client says:
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+<div class="container">
+    <div class="row">
+    {% for testimony in testimonys %}
+        <div class="col-md-6">
+            <div class="card d-flex mx-auto">
+                <div class="card-image"> <img class="img-fluid d-flex mx-auto" src="{{testimony.image}}"> </div>
+                <div class="card-text">
+                     {{testimony.desc}}
+                </div>
+                <div class="footer"> <span id="testimony-name">{{testimony.name}}<br></span> </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock testimony %}
+
+
+{% block contact %}
+<section
+      class="paralax-mf footer-paralax bg-image sect-mt4 route"
+      style="background-image: url(static/img/overlay-bg.jpg)"
+    >
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">Send Message Us</h5>
+                    </div>
+                    <div>
+                      <form
+                        action="{% url 'index' %}"
+                        method="post"
+                        role="form"
+                        class="contactForm"
+                      >{% csrf_token %}
+                        <div id="sendmessage">
+                          Your message has been sent. Thank you!
+                        </div>
+                        <div id="errormessage"></div>
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                id="name"
+                                placeholder="Your Name"
+                                data-rule="minlen:4"
+                                data-msg="Please enter at least 4 chars"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                id="email"
+                                placeholder="Your Email"
+                                data-rule="email"
+                                data-msg="Please enter a valid email"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="subject"
+                                id="subject"
+                                placeholder="Subject"
+                                data-rule="minlen:4"
+                                data-msg="Please enter at least 8 chars of subject"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <textarea
+                                class="form-control"
+                                name="message"
+                                rows="5"
+                                data-rule="required"
+                                data-msg="Please write something for us"
+                                placeholder="Message"
+                              ></textarea>
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <button
+                              type="submit"
+                              class="button button-a button-big button-rouded" value="submit"
+                            >
+                              Send Message
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                      <h5 class="title-left">Get in Touch</h5>
+                    </div>
+                    <div class="more-info">
+                      <p class="lead">
+                        If you are in need to design and develop graphic and website then you can contact me through email or phone number
+                      </p>
+                      <ul class="list-ico">
+                        <li>
+                          <span class="ion-ios-location"></span> Ratnanagar-1, Chitwan
+                        </li>
+                        <li>
+                          <span class="ion-ios-telephone"></span> 977 9847612744
+                        </li>
+                        <li>bishalpaudel1998@gmail.com
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="socials">
+                      <ul>
+                        <li>
+                          <a href="https://www.facebook.com/bishal.paudel.9843"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-facebook"></i></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="https://www.instagram.com/bishalpaudel1998/"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-instagram"></i></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a href=""
+                            ><span class="ico-circle"
+                              ><i class="ion-social-twitter"></i></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="https://www.pinterest.com/bishalpaudel1998"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-pinterest"></i></span
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="copyright-box">
+                <p class="copyright">
+                  &copy; Copyright <strong>Bishal Paudel</strong>. All Rights
+                  Reserved
+                </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    {% endblock contact %}
